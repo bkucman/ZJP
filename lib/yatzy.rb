@@ -26,30 +26,20 @@ class Yatzy
     @dice = die
   end
 
-  def self.score_pair( d1,  d2,  d3,  d4,  d5)
-    counts = [0]*6
-    counts[d1-1] += 1
-    counts[d2-1] += 1
-    counts[d3-1] += 1
-    counts[d4-1] += 1
-    counts[d5-1] += 1
+  def self.score_pair(die)
+    tallies = set_tallies(die)
     (0...6).each do |i|
-      return (6-i) * 2 if counts[6-i-1] >= 2
+      return (6-i) * 2 if tallies[6-i-1] >= 2
     end
     0
   end
 
-  def self.two_pair( d1,  d2,  d3,  d4,  d5)
-    counts = [0]*6
-    counts[d1-1] += 1
-    counts[d2-1] += 1
-    counts[d3-1] += 1
-    counts[d4-1] += 1
-    counts[d5-1] += 1
+  def self.two_pair(die)
+    tallies = set_tallies(die)
     n = 0
     score = 0
     (Array 0..5).each do |i|
-      (n += 1; score += (6 - i)) if counts[6 - i - 1] >= 2
+      (n += 1; score += (6 - i)) if tallies[6 - i - 1] >= 2
     end
 
     if n == 2

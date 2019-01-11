@@ -55,14 +55,14 @@ class YatzyTest < Test::Unit::TestCase
   end
 
   def test_one_pair
-    assert 6 == Yatzy.score_pair(3,4,3,5,6)
-    assert 10 == Yatzy.score_pair(5,3,3,3,5)
-    assert 12 == Yatzy.score_pair(5,3,6,6,5)
+    assert 6 == Yatzy.score_pair(Dice.new(3,4,3,5,6).return_dice())
+    assert 10 == Yatzy.score_pair(Dice.new(5,3,3,3,5).return_dice())
+    assert 12 == Yatzy.score_pair(Dice.new(5,3,6,6,5).return_dice())
   end
 
   def test_two_Pair
-    assert_equal 16, Yatzy.two_pair(3,3,5,4,5)
-    assert_equal 16, Yatzy.two_pair(3,3,5,5,5)
+    assert_equal 16, Yatzy.two_pair(Dice.new(3,3,5,4,5).return_dice())
+    assert_equal 16, Yatzy.two_pair(Dice.new(3,3,5,5,5).return_dice())
   end
 
   def test_three_of_a_kind()

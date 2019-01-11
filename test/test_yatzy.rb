@@ -66,33 +66,33 @@ class YatzyTest < Test::Unit::TestCase
   end
 
   def test_three_of_a_kind()
-    assert 9 == Yatzy.numberOfaKind(Dice.new(3,3,3,4,5).return_dice(), 3)
-    assert 15 == Yatzy.numberOfaKind(Dice.new(5,3,5,4,5).return_dice(), 3)
-    assert 9 == Yatzy.numberOfaKind(Dice.new(3,3,3,3,5).return_dice(), 3)
-    assert 9 == Yatzy.numberOfaKind(Dice.new(3,3,3,3,3).return_dice(), 3)
+    assert 9 == Yatzy.number_of_a_kind(Dice.new(3,3,3,4,5).return_dice(), 3)
+    assert 15 == Yatzy.number_of_a_kind(Dice.new(5,3,5,4,5).return_dice(), 3)
+    assert 9 == Yatzy.number_of_a_kind(Dice.new(3,3,3,3,5).return_dice(), 3)
+    assert 9 == Yatzy.number_of_a_kind(Dice.new(3,3,3,3,3).return_dice(), 3)
   end
 
   def test_four_of_a_knd
-    assert 12 == Yatzy.numberOfaKind(Dice.new(3,3,3,3,5).return_dice(), 4)
-    assert 20 == Yatzy.numberOfaKind(Dice.new(5,5,5,4,5).return_dice(), 4)
-    assert 12 == Yatzy.numberOfaKind(Dice.new(3,3,3,3,3).return_dice(), 4)
+    assert 12 == Yatzy.number_of_a_kind(Dice.new(3,3,3,3,5).return_dice(), 4)
+    assert 20 == Yatzy.number_of_a_kind(Dice.new(5,5,5,4,5).return_dice(), 4)
+    assert 12 == Yatzy.number_of_a_kind(Dice.new(3,3,3,3,3).return_dice(), 4)
   end
 
-  def test_smallStraight()
-    assert 15 == Yatzy.smallStraight(Dice.new(1,2,3,4,5).return_dice())
-    assert 15 == Yatzy.smallStraight(Dice.new(2,3,4,5,1).return_dice())
-    assert 0 == Yatzy.smallStraight(Dice.new(1,2,2,4,5).return_dice())
+  def test_small_straight()
+    assert 15 == Yatzy.small_straight(Dice.new(1,2,3,4,5).return_dice())
+    assert 15 == Yatzy.small_straight(Dice.new(2,3,4,5,1).return_dice())
+    assert 0 == Yatzy.small_straight(Dice.new(1,2,2,4,5).return_dice())
   end
 
-  def test_largeStraight
-    assert 20 == Yatzy.largeStraight(Dice.new(6,2,3,4,5).return_dice())
-    assert 20 == Yatzy.largeStraight(Dice.new(2,3,4,5,6).return_dice())
-    assert 0 == Yatzy.largeStraight(Dice.new(1,2,2,4,5).return_dice())
+  def test_large_straight
+    assert 20 == Yatzy.large_straight(Dice.new(6,2,3,4,5).return_dice())
+    assert 20 == Yatzy.large_straight(Dice.new(2,3,4,5,6).return_dice())
+    assert 0 == Yatzy.large_straight(Dice.new(1,2,2,4,5).return_dice())
   end
 
-  def test_fullHouse()
-    puts Yatzy.fullHouse(Dice.new(2,3,4,5,6).return_dice())
-    assert 18 == Yatzy.fullHouse(Dice.new(6,2,2,2,6).return_dice())
-    assert 0 == Yatzy.fullHouse(Dice.new(2,3,4,5,6).return_dice())
+  def test_full_house()
+    puts Yatzy.full_house(Dice.new(2,3,4,5,6).return_dice())
+    assert 18 == Yatzy.full_house(Dice.new(6,2,2,2,6).return_dice())
+    assert 0 == Yatzy.full_house(Dice.new(2,3,4,5,6).return_dice())
   end
 end

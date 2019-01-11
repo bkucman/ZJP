@@ -66,16 +66,16 @@ class YatzyTest < Test::Unit::TestCase
   end
 
   def test_three_of_a_kind()
-    assert 9 == Yatzy.three_of_a_kind(Dice.new(3,3,3,4,5).return_dice())
-    assert 15 == Yatzy.three_of_a_kind(Dice.new(5,3,5,4,5).return_dice())
-    assert 9 == Yatzy.three_of_a_kind(Dice.new(3,3,3,3,5).return_dice())
-    assert 9 == Yatzy.three_of_a_kind(Dice.new(3,3,3,3,3).return_dice())
+    assert 9 == Yatzy.number_of_a_kind(Dice.new(3,3,3,4,5).return_dice(), 3)
+    assert 15 == Yatzy.number_of_a_kind(Dice.new(5,3,5,4,5).return_dice(), 3)
+    assert 9 == Yatzy.number_of_a_kind(Dice.new(3,3,3,3,5).return_dice(), 3)
+    assert 9 == Yatzy.number_of_a_kind(Dice.new(3,3,3,3,3).return_dice(), 3)
   end
 
   def test_four_of_a_knd
-    assert 12 == Yatzy.four_of_a_kind(Dice.new(3,3,3,3,5).return_dice())
-    assert 20 == Yatzy.four_of_a_kind(Dice.new(5,5,5,4,5).return_dice())
-    assert 12 == Yatzy.four_of_a_kind(Dice.new(3,3,3,3,3).return_dice())
+    assert 12 == Yatzy.number_of_a_kind(Dice.new(3,3,3,3,5).return_dice(), 4)
+    assert 20 == Yatzy.number_of_a_kind(Dice.new(5,5,5,4,5).return_dice(), 4)
+    assert 12 == Yatzy.number_of_a_kind(Dice.new(3,3,3,3,3).return_dice(), 4)
   end
 
   def test_smallStraight()

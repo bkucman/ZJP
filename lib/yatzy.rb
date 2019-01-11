@@ -61,30 +61,20 @@ class Yatzy
 
   def self.set_tallies(die)
     tallies = [0]*6
-    tallies[die[0]-1] += 1
-    tallies[die[1]-1] += 1
-    tallies[die[2]-1] += 1
-    tallies[die[3]-1] += 1
-    tallies[die[4]-1] += 1
+    (0..4).each do |i|
+      tallies[die[i] - 1] += 1
+    end
     tallies
   end
 
-  def self.four_of_a_kind(die)
+  def self.number_of_a_kind(die, number)
     tallies = set_tallies(die)
     (0..6).each do |i|
-      return (i + 1) * 4 if tallies[i] >= 4
+      return (i + 1) * number if tallies[i] >= number
     end
     0
   end
-
-  def self.three_of_a_kind(die)
-    tallies = set_tallies(die)
-    (0..6).each do |i|
-      return (i + 1) * 3 if tallies[i] >= 3
-    end
-    0
-  end
-
+  
   def self.smallStraight( d1,  d2,  d3,  d4,  d5)
     tallies = [0]*6
     tallies[d1-1] += 1

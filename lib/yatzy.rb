@@ -27,7 +27,7 @@ class Yatzy
   end
 
   def self.score_pair(die)
-    tallies = set_tallies(die)
+    tallies = setTallies(die)
     (0...tallies.size).each do |i|
       return (i + 1) * 2 if tallies[i] == 2
     end
@@ -35,18 +35,18 @@ class Yatzy
   end
 
   def self.two_pair(die)
-    tallies = set_tallies(die)
+    tallies = setTallies(die)
     n = 0
     score = 0
     tallies.each_with_index do |i, ind|
-      (n += 1; score += (ind + 1)) if i >= 2
+      (n += 1; score += ind + 1) if i >= 2
     end
     return score * 2 if n == 2
 
     0
   end
 
-  def self.set_tallies(die)
+  def self.setTallies(die)
     tallies = [0]*6
     (0..4).each do |i|
       tallies[die[i] - 1] += 1
@@ -54,8 +54,8 @@ class Yatzy
     tallies
   end
 
-  def self.number_of_a_kind(die, number)
-    tallies = set_tallies(die)
+  def self.numberOfaKind(die, number)
+    tallies = setTallies(die)
     (0..tallies.size).each do |i|
       return (i + 1) * number if tallies[i] >= number
     end
@@ -63,21 +63,21 @@ class Yatzy
   end
 
   def self.smallStraight(die)
-    tallies = set_tallies(die)
+    tallies = setTallies(die)
     all_ones = true
     tallies.each do |i|
       all_ones = false if tallies[i] != 1
     end
-    (all_ones) ? 15 : 0
+    all_ones ? 15 : 0
   end
 
   def self.largeStraight(die)
-    tallies = set_tallies(die)
+    tallies = setTallies(die)
     all_ones = true
     tallies.each do |i|
       all_ones = false if tallies[i+1] != 1
     end
-    (all_ones) ? 20 : 0
+    all_ones ? 20 : 0
   end
 
   def self.find_number(tallies, number)
@@ -88,7 +88,7 @@ class Yatzy
   end
 
   def self.fullHouse(die)
-    tallies = set_tallies(die)
+    tallies = setTallies(die)
     (find_number(tallies, 2) * 2 + find_number(tallies, 3) * 3)
   end
 end

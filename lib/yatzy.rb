@@ -14,56 +14,16 @@ class Yatzy
     0
   end
 
-  def self.ones(die)
+  def self.count_number(die, number)
     sum = 0
     die.each do |die|
-      sum += 1 if die == 1
-    end
-    sum
-  end
-
-  def self.twos(die)
-    sum = 0
-    die.each do |die|
-        sum += 2 if die == 2
-    end
-    sum
-  end
-
-  def self.threes(die)
-    sum = 0
-    die.each do |die|
-        sum += 3 if die == 3
+      sum += number if die == number
     end
     sum
   end
 
   def initialize(die)
     @dice = die
-  end
-
-  def self.fours(die)
-    sum = 0
-    die.each do |die|
-        sum += 4 if die == 4
-    end
-    sum
-  end
-
-  def self.fives(die)
-    sum = 0
-    die.each do |die|
-        sum += 5 if die == 5
-    end
-    sum
-  end
-
-  def self.sixes(die)
-    sum = 0
-    die.each do |die|
-        sum += 6 if die == 6
-    end
-    sum
   end
 
   def self.score_pair( d1,  d2,  d3,  d4,  d5)

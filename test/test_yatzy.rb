@@ -20,38 +20,38 @@ class YatzyTest < Test::Unit::TestCase
   end
 
   def test_1s
-    assert Yatzy.ones(Dice.new(1,2,3,4,5).return_dice()) == 1
-    assert 2 == Yatzy.ones(Dice.new(1,2,1,4,5).return_dice())
-    assert 0 == Yatzy.ones(Dice.new(6,2,2,4,5).return_dice())
-    assert 4 == Yatzy.ones(Dice.new(1,2,1,1,1).return_dice())
+    assert Yatzy.count_number(Dice.new(1,2,3,4,5).return_dice() ,1) == 1
+    assert 2 == Yatzy.count_number(Dice.new(1,2,1,4,5).return_dice(), 1)
+    assert 0 == Yatzy.count_number(Dice.new(6,2,2,4,5).return_dice(), 1)
+    assert 4 == Yatzy.count_number(Dice.new(1,2,1,1,1).return_dice(), 1)
   end
 
   def test_2s
-    assert Yatzy.twos(Dice.new(1,2,3,2,6).return_dice()) == 4
-    assert Yatzy.twos(Dice.new(2,2,2,2,2).return_dice()) == 10
+    assert Yatzy.count_number(Dice.new(1,2,3,2,6).return_dice(), 2) == 4
+    assert Yatzy.count_number(Dice.new(2,2,2,2,2).return_dice(), 2) == 10
   end
 
   def test_threes
-    assert 6 == Yatzy.threes(Dice.new(1,2,3,2,3).return_dice())
-    assert 12 == Yatzy.threes(Dice.new(2,3,3,3,3).return_dice())
+    assert 6 == Yatzy.count_number(Dice.new(1,2,3,2,3).return_dice(), 3)
+    assert 12 == Yatzy.count_number(Dice.new(2,3,3,3,3).return_dice(), 3)
   end
 
   def test_fours_test
-    assert 12 == Yatzy.fours(Dice.new(4,4,4,5,5).return_dice())
-    assert 8 == Yatzy.fours(Dice.new(4,4,5,5,5).return_dice())
-    assert 4 == Yatzy.fours(Dice.new(4,5,5,5,5).return_dice())
+    assert 12 == Yatzy.count_number(Dice.new(4,4,4,5,5).return_dice(), 4)
+    assert 8 == Yatzy.count_number(Dice.new(4,4,5,5,5).return_dice(), 4)
+    assert 4 == Yatzy.count_number(Dice.new(4,5,5,5,5).return_dice(), 4)
   end
 
   def test_fives()
-    assert 10 == Yatzy.fives(Dice.new(4,4,4,5,5).return_dice())
-    assert 15 == Yatzy.fives(Dice.new(4,4,5,5,5).return_dice())
-    assert 20 == Yatzy.fives(Dice.new(4,5,5,5,5).return_dice())
+    assert 10 == Yatzy.count_number(Dice.new(4,4,4,5,5).return_dice(), 5)
+    assert 15 == Yatzy.count_number(Dice.new(4,4,5,5,5).return_dice(), 5)
+    assert 20 == Yatzy.count_number(Dice.new(4,5,5,5,5).return_dice(), 5)
   end
 
   def test_sixes_test
-    assert 0 == Yatzy.sixes(Dice.new(4,4,4,5,5).return_dice())
-    assert 6 == Yatzy.sixes(Dice.new(4,4,6,5,5).return_dice())
-    assert 18 == Yatzy.sixes(Dice.new(6,5,6,6,5).return_dice())
+    assert 0 == Yatzy.count_number(Dice.new(4,4,4,5,5).return_dice(), 6)
+    assert 6 == Yatzy.count_number(Dice.new(4,4,6,5,5).return_dice(), 6)
+    assert 18 == Yatzy.count_number(Dice.new(6,5,6,6,5).return_dice(), 6)
   end
 
   def test_one_pair

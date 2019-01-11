@@ -28,8 +28,8 @@ class Yatzy
 
   def self.score_pair(die)
     tallies = set_tallies(die)
-    (0..tallies.size).each do |i|
-      return (6-i) * 2 if tallies[6-i-1] >= 2
+    (0...tallies.size).each do |i|
+      return (i + 1) * 2 if tallies[i] == 2
     end
     0
   end
@@ -42,6 +42,7 @@ class Yatzy
       (n += 1; score += (ind + 1)) if i >= 2
     end
     return score * 2 if n == 2
+
     0
   end
 

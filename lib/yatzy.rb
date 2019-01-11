@@ -4,12 +4,12 @@ class Yatzy
   end
 
   def self.yatzy(dice)
-    counts = [0] * (dice.length + 1)
+    numbers_of_values = [0] * (dice.length + 1)
     dice.each do |die|
-      counts[die - 1] += 1
+      numbers_of_values[die - 1] += 1
     end
-    (0...counts.size).each do |i|
-      return 50 if counts[i] == 5
+    (0...numbers_of_values.size).each do |i|
+      return 50 if numbers_of_values[i] == 5
     end
     0
   end
@@ -27,54 +27,54 @@ class Yatzy
   end
 
   def self.score_pair(die)
-    tallies = set_tallies(die)
+    numbers_of_values = set_numbers_of_values(die)
     (0..6).each do |i|
-      return (6-i) * 2 if tallies[6-i-1] >= 2
+      return (6-i) * 2 if numbers_of_values[6-i-1] >= 2
     end
     0
   end
 
   def self.two_pair(die)
-    tallies = set_tallies(die)
+    numbers_of_values = set_numbers_of_values(die)
     n = 0
     score = 0
-    tallies.each_with_index do |i,ind|
+    numbers_of_values.each_with_index do |i,ind|
       (n += 1; score += (ind + 1)) if i >= 2
     end
     return score * 2 if n == 2
     0
   end
 
-  def self.set_tallies(die)
-    tallies = [0]*6
+  def self.set_numbers_of_values(die)
+    numbers_of_values = [0]*6
     (0..4).each do |i|
-      tallies[die[i] - 1] += 1
+      numbers_of_values[die[i] - 1] += 1
     end
-    tallies
+    numbers_of_values
   end
 
   def self.number_of_a_kind(die, number)
-    tallies = set_tallies(die)
+    numbers_of_values = set_numbers_of_values(die)
     (0..6).each do |i|
-      return (i + 1) * number if tallies[i] >= number
+      return (i + 1) * number if numbers_of_values[i] >= number
     end
     0
   end
 
   def self.smallStraight(die)
-    tallies = set_tallies(die)
+    numbers_of_values = set_numbers_of_values(die)
     all_ones = true
-    tallies.each do |i|
-      all_ones = false if tallies[i] != 1
+    numbers_of_values.each do |i|
+      all_ones = false if numbers_of_values[i] != 1
     end
     (all_ones) ? 15 : 0
   end
 
   def self.largeStraight(die)
-    tallies = set_tallies(die)
+    numbers_of_values = set_numbers_of_values(die)
     all_ones = true
-    tallies.each do |i|
-      all_ones = false if tallies[i+1] != 1
+    numbers_of_values.each do |i|
+      all_ones = false if numbers_of_values[i+1] != 1
     end
     (all_ones) ? 20 : 0
   end
@@ -87,7 +87,7 @@ class Yatzy
   end
 
   def self.fullHouse(die)
-    tallies = set_tallies(die)
-    (find_number(tallies, 2) * 2 + find_number(tallies, 3) * 3)
+    numbers_of_values = set_numbers_of_values(die)
+    (find_number(numbers_of_values, 2) * 2 + find_number(numbers_of_values, 3) * 3)
   end
 end

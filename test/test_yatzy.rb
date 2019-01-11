@@ -1,12 +1,14 @@
 require_relative '../lib/yatzy'
+require_relative '../lib/dice'
 require 'test/unit'
 
 class YatzyTest < Test::Unit::TestCase
   def test_chance_scores_sum_of_all_dice
     expected = 15
-    actual = Yatzy.chance(2,3,4,5,1)
+    dice = Dice.new(2,3,4,5,1)
+    actual = Yatzy.chance(dice.return_dice())
     assert expected == actual
-    assert 16 == Yatzy.chance(3,3,4,5,1)
+    assert 16 == Yatzy.chance(Dice.new(3,3,4,5,1).return_dice())
   end
 
   def test_yatzy_scores_50
@@ -18,15 +20,15 @@ class YatzyTest < Test::Unit::TestCase
   end
 
   def test_1s
-    assert Yatzy.ones(1,2,3,4,5) == 1
-    assert 2 == Yatzy.ones(1,2,1,4,5)
-    assert 0 == Yatzy.ones(6,2,2,4,5)
-    assert 4 == Yatzy.ones(1,2,1,1,1)
+    assert Yatzy.ones(Dice.new(1,2,3,4,5).return_dice()) == 1
+    assert 2 == Yatzy.ones(Dice.new(1,2,1,4,5).return_dice())
+    assert 0 == Yatzy.ones(Dice.new(6,2,2,4,5).return_dice())
+    assert 4 == Yatzy.ones(Dice.new(1,2,1,1,1).return_dice())
   end
 
   def test_2s
-    assert Yatzy.twos(1,2,3,2,6) == 4
-    assert Yatzy.twos(2,2,2,2,2) == 10
+    assert Yatzy.twos(Dice.new(1,2,3,2,6).return_dice()) == 4
+    assert Yatzy.twos(Dice.new(2,2,2,2,2).return_dice()) == 10
   end
 
   def test_threes

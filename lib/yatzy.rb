@@ -1,12 +1,6 @@
 class Yatzy
-  def self.chance(d1, d2, d3, d4, d5)
-    total = 0
-    total += d1
-    total += d2
-    total += d3
-    total += d4
-    total += d5
-    return total
+  def self.chance(die)
+    die.sum
   end
 
   def self.yatzy(dice)
@@ -22,45 +16,20 @@ class Yatzy
     return 0
   end
 
-  def self.ones( d1,  d2,  d3,  d4,  d5)
+  def self.ones(die)
     sum = 0
-    if (d1 == 1)
-      sum += 1
+    die.each do |die|
+      sum += 1 if die == 1
     end
-    if (d2 == 1)
-      sum += 1
-    end
-    if (d3 == 1)
-      sum += 1
-    end
-    if (d4 == 1)
-      sum += 1
-    end
-    if (d5 == 1)
-      sum += 1
-    end
-
     sum
   end
 
-  def self.twos( d1,  d2,  d3,  d4,  d5)
+  def self.twos(die)
     sum = 0
-    if (d1 == 2)
-      sum += 2
+    die.each do |die|
+        sum += 2 if die == 2
     end
-    if (d2 == 2)
-      sum += 2
-    end
-    if (d3 == 2)
-      sum += 2
-    end
-    if (d4 == 2)
-      sum += 2
-    end
-    if (d5 == 2)
-      sum += 2
-    end
-    return sum
+    sum
   end
 
   def self.threes( d1,  d2,  d3,  d4,  d5)

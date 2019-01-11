@@ -83,22 +83,15 @@ class Yatzy
     (all_ones) ? 20 : 0
   end
 
-  def self.find_tripple(tallies)
+  def self.find_number(tallies, number)
     (0..6).each do |i|
-      return i + 1 if tallies[i] == 3
-    end
-    0
-  end
-
-  def self.find_double(tallies)
-    (0..6).each do |i|
-      return i + 1 if tallies[i] == 2
+      return i + 1 if tallies[i] == number
     end
     0
   end
 
   def self.fullHouse(die)
     tallies = set_tallies(die)
-    (find_double(tallies) * 2 + find_tripple(tallies) * 3)
+    (find_number(tallies, 2) * 2 + find_number(tallies, 3) * 3)
   end
 end

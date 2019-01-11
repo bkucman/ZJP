@@ -57,7 +57,7 @@ class YatzyTest < Test::Unit::TestCase
   def test_one_pair
     assert 6 == Yatzy.score_pair(Dice.new(3,4,3,5,6).return_dice())
     assert 10 == Yatzy.score_pair(Dice.new(5,3,3,3,5).return_dice())
-    assert 8 == Yatzy.score_pair(Dice.new(4,3,6,6,4).return_dice())
+    assert 12 == Yatzy.score_pair(Dice.new(5,3,6,6,5).return_dice())
   end
 
   def test_two_Pair

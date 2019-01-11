@@ -28,7 +28,7 @@ class Yatzy
 
   def self.score_pair(die)
     tallies = setTallies(die)
-    (0...tallies.size).each do |i|
+    (0...tallies.size).reverse_each do |i|
       return (i + 1) * 2 if tallies[i] == 2
     end
     0
@@ -36,13 +36,14 @@ class Yatzy
 
   def self.two_pair(die)
     tallies = setTallies(die)
-    n = 0
-    score = 0
+    n = 0; score = 0
     tallies.each_with_index do |i, ind|
-      (n += 1; score += ind + 1) if i >= 2
+      if i >= 2
+        n += 1
+        score += ind + 1
+      end
     end
     return score * 2 if n == 2
-
     0
   end
 
@@ -75,7 +76,7 @@ class Yatzy
     tallies = setTallies(die)
     all_ones = true
     tallies.each do |i|
-      all_ones = false if tallies[i+1] != 1
+      all_ones = false if tallies[i + 1] != 1
     end
     all_ones ? 20 : 0
   end
@@ -89,6 +90,6 @@ class Yatzy
 
   def self.fullHouse(die)
     tallies = setTallies(die)
-    (find_number(tallies, 2) * 2 + find_number(tallies, 3) * 3)
+    find_number(tallies, 2) * 2 + find_number(tallies, 3) * 3
   end
 end

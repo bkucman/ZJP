@@ -59,29 +59,28 @@ class Yatzy
     end
   end
 
-  def self.four_of_a_kind( _1,  _2,  d3,  d4,  d5)
+  def self.set_tallies(die)
     tallies = [0]*6
-    tallies[_1-1] += 1
-    tallies[_2-1] += 1
-    tallies[d3-1] += 1
-    tallies[d4-1] += 1
-    tallies[d5-1] += 1
+    tallies[die[0]-1] += 1
+    tallies[die[1]-1] += 1
+    tallies[die[2]-1] += 1
+    tallies[die[3]-1] += 1
+    tallies[die[4]-1] += 1
+    tallies
+  end
 
+  def self.four_of_a_kind(die)
+    tallies = set_tallies(die)
     (0..6).each do |i|
       return (i + 1) * 4 if tallies[i] >= 4
     end
     0
   end
 
-  def self.three_of_a_kind( d1,  d2,  d3,  d4,  d5)
-    t = [0]*6
-    t[d1-1] += 1
-    t[d2-1] += 1
-    t[d3-1] += 1
-    t[d4-1] += 1
-    t[d5-1] += 1
+  def self.three_of_a_kind(die)
+    tallies = set_tallies(die)
     (0..6).each do |i|
-      return (i + 1) * 3 if t[i] >= 3
+      return (i + 1) * 3 if tallies[i] >= 3
     end
     0
   end

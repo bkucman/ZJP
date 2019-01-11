@@ -79,15 +79,15 @@ class YatzyTest < Test::Unit::TestCase
   end
 
   def test_smallStraight()
-    assert 15 == Yatzy.smallStraight(1,2,3,4,5)
-    assert 15 == Yatzy.smallStraight(2,3,4,5,1)
-    assert 0 == Yatzy.smallStraight(1,2,2,4,5)
+    assert 15 == Yatzy.smallStraight(Dice.new(1,2,3,4,5).return_dice())
+    assert 15 == Yatzy.smallStraight(Dice.new(2,3,4,5,1).return_dice())
+    assert 0 == Yatzy.smallStraight(Dice.new(1,2,2,4,5).return_dice())
   end
 
   def test_largeStraight
-    assert 20 == Yatzy.largeStraight(6,2,3,4,5)
-    assert 20 == Yatzy.largeStraight(2,3,4,5,6)
-    assert 0 == Yatzy.largeStraight(1,2,2,4,5)
+    assert 20 == Yatzy.largeStraight(Dice.new(6,2,3,4,5).return_dice())
+    assert 20 == Yatzy.largeStraight(Dice.new(2,3,4,5,6).return_dice())
+    assert 0 == Yatzy.largeStraight(Dice.new(1,2,2,4,5).return_dice())
   end
 
   def test_fullHouse()

@@ -74,32 +74,23 @@ class Yatzy
     end
     0
   end
-  
-  def self.smallStraight( d1,  d2,  d3,  d4,  d5)
-    tallies = [0]*6
-    tallies[d1-1] += 1
-    tallies[d2-1] += 1
-    tallies[d3-1] += 1
-    tallies[d4-1] += 1
-    tallies[d5-1] += 1
-    (tallies[0] == 1 and
-      tallies[1] == 1 and
-      tallies[2] == 1 and
-      tallies[3] == 1 and
-      tallies[4] == 1) ? 15 : 0
+
+  def self.smallStraight(die)
+    tallies = set_tallies(die)
+    all_ones = true
+    tallies.each do |i|
+      all_ones = false if tallies[i] != 1
+    end
+    (all_ones) ? 15 : 0
   end
 
-  def self.largeStraight( d1,  d2,  d3,  d4,  d5)
-    tallies = [0]*6
-    tallies[d1-1] += 1
-    tallies[d2-1] += 1
-    tallies[d3-1] += 1
-    tallies[d4-1] += 1
-    tallies[d5-1] += 1
-    if (tallies[1] == 1 and tallies[2] == 1 and tallies[3] == 1 and tallies[4] == 1 and tallies[5] == 1)
-      return 20
+  def self.largeStraight(die)
+    tallies = set_tallies(die)
+    all_ones = true
+    tallies.each do |i|
+      all_ones = false if tallies[i+1] != 1
     end
-    return 0
+    (all_ones) ? 20 : 0
   end
 
   def self.fullHouse( d1,  d2,  d3,  d4,  d5)

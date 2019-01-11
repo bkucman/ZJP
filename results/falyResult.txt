@@ -1,0 +1,13 @@
+Total score (lower is better) = 186
+
+1) Similar code found in :defs (mass = 94)
+  lib/yatzy.rb:46
+  lib/yatzy.rb:66
+
+2) Similar code found in :and (mass = 58)
+  lib/yatzy.rb:202
+  lib/yatzy.rb:217
+
+3) Similar code found in :for (mass = 34)
+  lib/yatzy.rb:236
+  lib/yatzy.rb:243

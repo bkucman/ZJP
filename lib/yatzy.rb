@@ -29,7 +29,7 @@ class Yatzy
   def self.score_pair(die)
     tallies = set_tallies(die)
     (0...tallies.size).reverse_each do |i|
-      return (i + 1) * 2 if tallies[i] == 2
+      return (i + 1) * 2 if tallies[i] >= 2
     end
     0
   end

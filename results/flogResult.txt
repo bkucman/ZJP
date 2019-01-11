@@ -1,0 +1,10 @@
+   249.5: flog total
+    15.6: flog/method average
+
+    27.7: Yatzy::largeStraight             lib/yatzy.rb:208-218
+    27.6: Yatzy::fullHouse                 lib/yatzy.rb:221-254
+    27.3: Yatzy::smallStraight             lib/yatzy.rb:194-206
+    24.6: Yatzy::two_pair                  lib/yatzy.rb:142-160
+    20.4: Yatzy::score_pair                lib/yatzy.rb:126-139
+    16.1: Yatzy::three_of_a_kind           lib/yatzy.rb:179-191
+    15.9: Yatzy::twos                      lib/yatzy.rb:46-63

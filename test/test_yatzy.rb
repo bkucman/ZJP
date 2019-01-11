@@ -1,4 +1,4 @@
-require_relative 'yatzy'
+require_relative '../lib/yatzy'
 require 'test/unit'
 
 class YatzyTest < Test::Unit::TestCase

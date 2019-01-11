@@ -38,10 +38,9 @@ class Yatzy
     tallies = set_tallies(die)
     n = 0
     score = 0
-    (0..5).each do |i|
-      (n += 1; score += (i+1)) if tallies[i] >= 2
+    tallies.each_with_index do |i,ind|
+      (n += 1; score += (ind + 1)) if i >= 2
     end
-
     return score * 2 if n == 2
     0
   end

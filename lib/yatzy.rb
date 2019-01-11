@@ -10,16 +10,14 @@ class Yatzy
   end
 
   def self.yatzy(dice)
-    counts = [0]*(dice.length+1)
-    for die in dice do
-      counts[die-1] += 1
+    counts = [0] * (dice.length + 1)
+    dice.each do |die|
+      counts[die - 1] += 1
     end
-    for i in 0..counts.size do
-      if counts[i] == 5
-        return 50
-      end
+    (0...counts.size).each do |i|
+      return 50 if counts[i] == 5
     end
-    return 0
+    0
   end
 
   def self.ones( d1,  d2,  d3,  d4,  d5)

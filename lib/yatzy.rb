@@ -92,31 +92,26 @@ class Yatzy
 
   def fours
     sum = 0
-    (Array 0..4).each do |at|
-      sum += 4 if @dice[at] == 4
+    (Array 0..4).each do |i|
+      sum += 4 if @dice[i] == 4
     end
     sum
   end
 
   def fives()
-    s = 0
-    i = 0
-    for i in (Range.new(0, @dice.size))
-      if (@dice[i] == 5)
-        s = s + 5
-      end
+    sum = 0
+    (Range.new(0, @dice.size)).each do |i|
+      sum += 5 if @dice[i] == 5
     end
-    s
+    sum
   end
 
   def sixes
     sum = 0
-    for at in 0..@dice.length
-      if (@dice[at] == 6)
-        sum = sum + 6
-      end
+    (0..@dice.length).each do |i|
+      sum += 6 if @dice[i] == 6
     end
-    return sum
+    sum
   end
 
   def self.score_pair( d1,  d2,  d3,  d4,  d5)
@@ -126,13 +121,10 @@ class Yatzy
     counts[d3-1] += 1
     counts[d4-1] += 1
     counts[d5-1] += 1
-    at = 0
-    (0...6).each do |at|
-      if (counts[6-at-1] >= 2)
-        return (6-at)*2
-      end
+    (0...6).each do |i|
+      return (6-i) * 2 if counts[6-i-1] >= 2
     end
-    return 0
+    0
   end
 
   def self.two_pair( d1,  d2,  d3,  d4,  d5)
@@ -144,13 +136,11 @@ class Yatzy
     counts[d5-1] += 1
     n = 0
     score = 0
-    for i in Array 0..5
-      if (counts[6-i-1] >= 2)
-        n = n+1
-        score += (6-i)
-      end
+    (Array 0..5).each do |i|
+      (n += 1; score += (6 - i)) if counts[6 - i - 1] >= 2
     end
-    if (n == 2)
+
+    if n == 2
       return score * 2
     else
       return 0
@@ -164,12 +154,11 @@ class Yatzy
     tallies[d3-1] += 1
     tallies[d4-1] += 1
     tallies[d5-1] += 1
-    for i in (0..6)
-      if (tallies[i] >= 4)
-        return (i+1) * 4
-      end
+
+    (0..6).each do |i|
+      return (i + 1) * 4 if tallies[i] >= 4
     end
-    return 0
+    0
   end
 
   def self.three_of_a_kind( d1,  d2,  d3,  d4,  d5)
@@ -179,10 +168,8 @@ class Yatzy
     t[d3-1] += 1
     t[d4-1] += 1
     t[d5-1] += 1
-    for i in [0,1,2,3,4,5]
-      if (t[i] >= 3)
-        return (i+1) * 3
-      end
+    (0..6).each do |i|
+      return (i + 1) * 3 if t[i] >= 3
     end
     0
   end
@@ -229,21 +216,15 @@ class Yatzy
     tallies[d4-1] += 1
     tallies[d5-1] += 1
 
-    for i in Array 0..5
-      if (tallies[i] == 2)
-        _2 = true
-        _2_at = i+1
-      end
+    (0..6).each do |i|
+      (_2 = true; _2_at = i + 1) if tallies[i] == 2
     end
 
-    for i in Array 0..5
-      if (tallies[i] == 3)
-        _3 = true
-        _3_at = i+1
-      end
+    (0..6).each do |i|
+      (_3 = true; _3_at = i + 1) if tallies[i] == 3
     end
 
-    if (_2 and _3)
+    if _2 && _3
       return _2_at * 2 + _3_at * 3
     else
       return 0

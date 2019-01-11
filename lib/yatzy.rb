@@ -5,8 +5,8 @@ class Yatzy
 
   def self.yatzy(dice)
     tallies = [0] * (dice.length + 1)
-    dice.each do |die|
-      tallies[die - 1] += 1
+    dice.each do |i|
+      tallies[i - 1] += 1
     end
     (0..tallies.size).each do |i|
       return 50 if tallies[i] == 5
@@ -16,8 +16,8 @@ class Yatzy
 
   def self.count_number(die, number)
     sum = 0
-    die.each do |die|
-      sum += number if die == number
+    die.each do |i|
+      sum += number if i == number
     end
     sum
   end

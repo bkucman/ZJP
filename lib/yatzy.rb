@@ -102,33 +102,22 @@ class Yatzy
     return 0
   end
 
-  def self.fullHouse( d1,  d2,  d3,  d4,  d5)
-    tallies = []
-    _2 = false
-    i = 0
-    _2_at = 0
-    _3 = false
-    _3_at = 0
-
-    tallies = [0]*6
-    tallies[d1-1] += 1
-    tallies[d2-1] += 1
-    tallies[d3-1] += 1
-    tallies[d4-1] += 1
-    tallies[d5-1] += 1
-
+  def self.find_tripple(tallies)
     (0..6).each do |i|
-      (_2 = true; _2_at = i + 1) if tallies[i] == 2
+      return i + 1 if tallies[i] == 3
     end
+    0
+  end
 
+  def self.find_double(tallies)
     (0..6).each do |i|
-      (_3 = true; _3_at = i + 1) if tallies[i] == 3
+      return i + 1 if tallies[i] == 2
     end
+    0
+  end
 
-    if _2 && _3
-      return _2_at * 2 + _3_at * 3
-    else
-      return 0
-    end
+  def self.fullHouse(die)
+    tallies = set_tallies(die)
+    (find_double(tallies) * 2 + find_tripple(tallies) * 3)
   end
 end

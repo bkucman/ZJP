@@ -32,64 +32,40 @@ class Yatzy
     sum
   end
 
-  def self.threes( d1,  d2,  d3,  d4,  d5)
-    s = 0
-    if (d1 == 3)
-      s += 3
-    end
-    if (d2 == 3)
-      s += 3
-    end
-    if (d3 == 3)
-      s += 3
-    end
-    if (d4 == 3)
-      s += 3
-    end
-    if (d5 == 3)
-      s += 3
-    end
-    return s
-  end
-
-  def initialize(d1, d2, d3, d4, _5)
-    @dice = [0]*5
-    @dice[0] = d1
-    @dice[1] = d2
-    @dice[2] = d3
-    @dice[3] = d4
-    @dice[4] = _5
-  end
-
-  def fours
+  def self.threes(die)
     sum = 0
-    for at in Array 0..4
-      if (@dice[at] == 4)
-        sum += 4
-      end
+    die.each do |die|
+        sum += 3 if die == 3
     end
-    return sum
+    sum
   end
 
-  def fives()
-    s = 0
-    i = 0
-    for i in (Range.new(0, @dice.size))
-      if (@dice[i] == 5)
-        s = s + 5
-      end
-    end
-    s
+  def initialize(die)
+    @dice = die
   end
 
-  def sixes
+  def self.fours(die)
     sum = 0
-    for at in 0..@dice.length
-      if (@dice[at] == 6)
-        sum = sum + 6
-      end
+    die.each do |die|
+        sum += 4 if die == 4
     end
-    return sum
+    sum
+  end
+
+  def self.fives(die)
+    sum = 0
+    die.each do |die|
+        sum += 5 if die == 5
+    end
+    sum
+  end
+
+  def self.sixes(die)
+    sum = 0
+    die.each do |die|
+        sum += 6 if die == 6
+    end
+    sum
   end
 
   def self.score_pair( d1,  d2,  d3,  d4,  d5)

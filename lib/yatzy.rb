@@ -78,15 +78,15 @@ class Yatzy
     all_ones ? 20 : 0
   end
 
+  def self.full_house(die)
+    tallies = set_tallies(die)
+    find_number(tallies, 2) * 2 + find_number(tallies, 3) * 3
+  end
+
   def self.find_number(tallies, number)
     (0..tallies.size).each do |i|
       return i + 1 if tallies[i] == number
     end
     0
-  end
-
-  def self.full_house(die)
-    tallies = set_tallies(die)
-    find_number(tallies, 2) * 2 + find_number(tallies, 3) * 3
   end
 end

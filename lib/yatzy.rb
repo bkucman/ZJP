@@ -1,4 +1,9 @@
+# Yatzy score verificator
 class Yatzy
+  def initialize(die)
+    @dice = die
+  end
+
   def self.chance(die)
     die.sum
   end
@@ -20,10 +25,6 @@ class Yatzy
       sum += number if i == number
     end
     sum
-  end
-
-  def initialize(die)
-    @dice = die
   end
 
   def self.score_pair(die)
@@ -48,7 +49,7 @@ class Yatzy
   end
 
   def self.set_tallies(die)
-    tallies = [0]*6
+    tallies = [0] * 6
     (0..4).each do |i|
       tallies[die[i] - 1] += 1
     end

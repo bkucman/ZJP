@@ -1,9 +1,5 @@
 # Yatzy score verificator
 class Yatzy
-  def initialize(die)
-    @dice = die
-  end
-
   def self.chance(die)
     die.sum
   end

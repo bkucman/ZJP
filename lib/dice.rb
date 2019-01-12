@@ -4,7 +4,7 @@ class Dice
     @dice = [d1, d2, d3, d4, d5]
   end
 
-  def return_dice
+  def indices
     @dice
   end
 end

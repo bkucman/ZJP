@@ -51,24 +51,24 @@ class Yatzy
 
   def self.number_of_a_kind(faces, number)
     tallies = get_tallies(faces)
-    (0..tallies.size).each do |i|
-      return (i + 1) * number if tallies[i] >= number
+    (0..tallies.size).each do |amount|
+      return (amount + 1) * number if tallies[amount] >= number
     end
     0
   end
 
   def self.small_straight(faces)
     tallies = get_tallies(faces)
-    tallies.each do |number|
-      return 0 if tallies[number] != 1
+    tallies.each do |amount|
+      return 0 if tallies[amount] != 1
     end
     15
   end
 
   def self.large_straight(faces)
     tallies = get_tallies(faces)
-    tallies.each do |number|
-      return 0 if tallies[number + 1] != 1
+    tallies.each do |amount|
+      return 0 if tallies[amount + 1] != 1
     end
     20
   end
@@ -79,8 +79,8 @@ class Yatzy
   end
 
   def self.find_number(tallies, number)
-    (0..tallies.size).each do |i|
-      return i + 1 if tallies[i] == number
+    (0..tallies.size).each do |amount|
+      return amount + 1 if tallies[amount] == number
     end
     0
   end

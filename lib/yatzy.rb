@@ -42,7 +42,7 @@ class Yatzy
   end
 
   def self.get_tallies(faces)
-    tallies = [0] * 7
+    tallies = [0] * 7 # indexed from 1 to 6
     (0...faces.size).each do |i|
       tallies[faces[i]] += 1
     end

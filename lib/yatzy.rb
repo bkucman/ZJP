@@ -1,82 +1,80 @@
 # Yatzy score verificator
 class Yatzy
-  def self.chance(die)
-    die.sum
+  def self.chance(faces)
+    faces.sum
   end
 
-  def self.yatzy(die)
-    tallies = get_tallies(die)
+  def self.yatzy(faces)
+    tallies = get_tallies(faces)
     (0..tallies.size).each do |i|
       return 50 if tallies[i] == 5
     end
     0
   end
 
-  def self.count_number(die, number)
+  def self.sum_number(faces, number)
     sum = 0
-    die.each do |i|
-      sum += number if i == number
+    faces.each do |face|
+      sum += number if face == number
     end
     sum
   end
 
-  def self.score_pair(die)
-    tallies = get_tallies(die)
-    (0...tallies.size).reverse_each do |i|
-      return (i + 1) * 2 if tallies[i] >= 2
+  def self.score_pair(faces)
+    tallies = get_tallies(faces)
+    (0...tallies.size).reverse_each do |number|
+      return (number + 1) * 2 if tallies[number] >= 2
     end
     0
   end
 
-  def self.two_pair(die)
-    tallies = get_tallies(die)
-    n = 0; score = 0
-    tallies.each_with_index do |i, ind|
-      if i >= 2
-        n += 1
-        score += ind + 1
+  def self.score_two_pair(faces)
+    tallies = get_tallies(faces)
+    pair_amount = 0; score = 0
+    tallies.each_with_index do |number_amount, number|
+      if number_amount >= 2
+        pair_amount += 1
+        score += number + 1
       end
     end
-    return score * 2 if n == 2
+    return score * 2 if pair_amount == 2
     0
   end
 
-  def self.get_tallies(die)
+  def self.get_tallies(faces)
     tallies = [0] * 6
     (0..4).each do |i|
-      tallies[die[i] - 1] += 1
+      tallies[faces[i] - 1] += 1
     end
     tallies
   end
 
-  def self.number_of_a_kind(die, number)
-    tallies = get_tallies(die)
+  def self.number_of_a_kind(faces, number)
+    tallies = get_tallies(faces)
     (0..tallies.size).each do |i|
       return (i + 1) * number if tallies[i] >= number
     end
     0
   end
 
-  def self.small_straight(die)
-    tallies = get_tallies(die)
-    all_ones = true
-    tallies.each do |i|
-      all_ones = false if tallies[i] != 1
+  def self.small_straight(faces)
+    tallies = get_tallies(faces)
+    tallies.each do |number|
+      return 0 if tallies[number] != 1
     end
-    all_ones ? 15 : 0
+    15
   end
 
-  def self.large_straight(die)
-    tallies = get_tallies(die)
-    all_ones = true
-    tallies.each do |i|
-      all_ones = false if tallies[i + 1] != 1
+  def self.large_straight(faces)
+    tallies = get_tallies(faces)
+    tallies.each do |number|
+      return 0 if tallies[number + 1] != 1
     end
-    all_ones ? 20 : 0
+    20
   end
 
-  def self.full_house(die)
-    tallies = get_tallies(die)
+  def self.full_house(faces)
+    tallies = get_tallies(faces)
     find_number(tallies, 2) * 2 + find_number(tallies, 3) * 3
   end
 

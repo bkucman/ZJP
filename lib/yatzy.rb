@@ -43,7 +43,7 @@ class Yatzy
 
   def self.get_tallies(faces)
     tallies = [0] * 7
-    (0..4).each do |i|
+    (0...faces.size).each do |i|
       tallies[faces[i]] += 1
     end
     tallies

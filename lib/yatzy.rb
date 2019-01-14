@@ -6,8 +6,8 @@ class Yatzy
 
   def self.yatzy(faces)
     tallies = get_tallies(faces)
-    (0..tallies.size).each do |amount|
-      return 50 if tallies[amount] == 5
+    tallies.each do |amount|
+      return 50 if amount == 5
     end
     0
   end

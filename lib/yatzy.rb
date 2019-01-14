@@ -6,8 +6,8 @@ class Yatzy
 
   def self.yatzy(faces)
     tallies = get_tallies(faces)
-    (0..tallies.size).each do |i|
-      return 50 if tallies[i] == 5
+    (0..tallies.size).each do |amount|
+      return 50 if tallies[amount] == 5
     end
     0
   end
@@ -22,8 +22,8 @@ class Yatzy
 
   def self.score_pair(faces)
     tallies = get_tallies(faces)
-    (0...tallies.size).reverse_each do |number|
-      return (number + 1) * 2 if tallies[number] >= 2
+    (0...tallies.size).reverse_each do |amount|
+      return (amount + 1) * 2 if tallies[amount] >= 2
     end
     0
   end
@@ -31,8 +31,8 @@ class Yatzy
   def self.score_two_pair(faces)
     tallies = get_tallies(faces)
     pair_amount = 0; score = 0
-    tallies.each_with_index do |number_amount, number|
-      if number_amount >= 2
+    tallies.each_with_index do |amount, number|
+      if amount >= 2
         pair_amount += 1
         score += number + 1
       end

@@ -58,19 +58,19 @@ class Yatzy
   end
 
   def self.small_straight(faces)
-    tallies = get_tallies(faces)
-    (1..5).each do |face|
-      return 0 if tallies[face] != 1
-    end
-    15
+    self.straight(faces, 1, 15)
   end
 
   def self.large_straight(faces)
+    self.straight(faces, 2, 20)
+  end
+
+  def self.straight(faces, from, score)
     tallies = get_tallies(faces)
-    (2..6).each do |face|
+    (from..from+4).each do |face|
       return 0 if tallies[face] != 1
     end
-    20
+    score
   end
 
   def self.full_house(faces)

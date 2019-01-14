@@ -59,7 +59,7 @@ class Yatzy
 
   def self.small_straight(faces)
     tallies = get_tallies(faces)
-    tallies.each do |amount|
+    (0...tallies.size - 1).each do |amount|
       return 0 if tallies[amount] != 1
     end
     15
@@ -67,8 +67,8 @@ class Yatzy
 
   def self.large_straight(faces)
     tallies = get_tallies(faces)
-    tallies.each do |amount|
-      return 0 if tallies[amount + 1] != 1
+    (1...tallies.size).each do |amount|
+      return 0 if tallies[amount] != 1
     end
     20
   end

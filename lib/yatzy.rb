@@ -22,29 +22,29 @@ class Yatzy
 
   def self.score_pair(faces)
     tallies = get_tallies(faces)
-    (0...tallies.size).reverse_each do |number|
-      return (number + 1) * 2 if tallies[number] >= 2
+    (1..6).reverse_each do |number|
+      return number * 2 if tallies[number] >= 2
     end
     0
   end
 
   def self.score_two_pair(faces)
     tallies = get_tallies(faces)
-    pair_amount = 0; score = 0
+    pairs = 0; score = 0
     tallies.each_with_index do |amount, number|
       if amount >= 2
-        pair_amount += 1
-        score += number + 1
+        pairs += 1
+        score += number
       end
     end
-    return score * 2 if pair_amount == 2
+    return score * 2 if pairs == 2
     0
   end
 
   def self.get_tallies(faces)
-    tallies = [0] * 6
+    tallies = [0] * 7
     (0..4).each do |i|
-      tallies[faces[i] - 1] += 1
+      tallies[faces[i]] += 1
     end
     tallies
   end
@@ -52,23 +52,23 @@ class Yatzy
   def self.number_of_a_kind(faces, number)
     tallies = get_tallies(faces)
     tallies.each_with_index do |amount, number_tallies|
-      return (number_tallies + 1) * number if amount >= number
+      return number_tallies * number if amount >= number
     end
     0
   end
 
   def self.small_straight(faces)
     tallies = get_tallies(faces)
-    (0...tallies.size - 1).each do |amount|
-      return 0 if tallies[amount] != 1
+    (1..5).each do |face|
+      return 0 if tallies[face] != 1
     end
     15
   end
 
   def self.large_straight(faces)
     tallies = get_tallies(faces)
-    (1...tallies.size).each do |amount|
-      return 0 if tallies[amount] != 1
+    (2..6).each do |face|
+      return 0 if tallies[face] != 1
     end
     20
   end
@@ -80,7 +80,7 @@ class Yatzy
 
   def self.find_number(tallies, number)
     tallies.each_with_index do |amount, number_tallies|
-      return number_tallies + 1 if amount == number
+      return number_tallies if amount == number
     end
     0
   end

@@ -1,7 +1,8 @@
-# Zaawansowane Języki Programowania - projekt zaliczeniowy
+# Zaawansowane Języki Programowania
 ## Uniwersytet Gdański - Informatyka II st., semestr 1 - 2018/2019
 ### Kod do refaktoryzacji pochodzi z repozytorium [Emily Bache](https://github.com/emilybache/Yatzy-Refactoring-Kata).
-Celem projektu była refaktoryzja kodu, stosując zasady zawarte na stronie https://refactoring.com/catalog/  
+Repozytorium zawiera projekt zaliczeniowy, którego celem była refaktoryzja kodu,  
+stosując zasady zawarte na stronie https://refactoring.com/catalog/  
 #### Język: Ruby
 ### Studenci: 
 - [Krzystof Borawski](https://github.com/Msegun),
@@ -10,7 +11,10 @@ Celem projektu była refaktoryzja kodu, stosując zasady zawarte na stronie http
 
 
 # Metryki
-## Better Code Hub
+## BetterCodeHub - jakość kodu
+#### BEFORE
+4 / 10
+#### AFTER
 [![BCH compliance](https://bettercodehub.com/edge/badge/kucmeno/ZJP?branch=master)](https://bettercodehub.com/)
 
 ## Flog - złożoność kodu

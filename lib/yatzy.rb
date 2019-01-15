@@ -58,16 +58,16 @@ class Yatzy
   end
 
   def self.small_straight(faces)
-    self.straight(faces, 1, 15)
+    straight(faces, 1, 15)
   end
 
   def self.large_straight(faces)
-    self.straight(faces, 2, 20)
+    straight(faces, 2, 20)
   end
 
   def self.straight(faces, from, score)
     tallies = get_tallies(faces)
-    (from..from+4).each do |face|
+    (from..from + 4).each do |face|
       return 0 if tallies[face] != 1
     end
     score

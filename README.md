@@ -5,7 +5,7 @@ Repozytorium zawiera projekt zaliczeniowy, którego celem była refaktoryzja kod
 stosując zasady zawarte na stronie https://refactoring.com/catalog/  
 #### Język: Ruby
 ### Studenci: 
-- [Krzystof Borawski](https://github.com/Msegun),
+- [Krzysztof Borawski](https://github.com/Msegun),
 - [Błażej Kucman](https://github.com/kucmeno), 
 - [Krzysztof Kulewski](https://github.com/kkulewski)
 

@@ -1,10 +1,34 @@
-# Zaawansowane Języki Programowania
-## Uniwersytet Gdański
-## Studia magisterskie: Informatyka rok.1 sem.1, 2018/19
-## Studenci: [Krzystof Borawski](https://github.com/Msegun), [Błażej Kucman](https://github.com/kucmeno), [Krzysztof Kulewski](https://github.com/kkulewski)
-### Repozytorium zawiera projekt zaliczeniowy
-## Kod do rekaktoryzacji pochodzi z repozytorium [Emily Bache](https://github.com/emilybache/Yatzy-Refactoring-Kata)
-Celem projektu była refaktoryzja kodu stosując zasady zawarte na stronie https://refactoring.com/catalog/.
-Użyty język: Ruby
-## Wynik Better Code [![BCH compliance](https://bettercodehub.com/edge/badge/kucmeno/ZJP?branch=master)](https://bettercodehub.com/)
+# Zaawansowane Języki Programowania - projekt zaliczeniowy
+## Uniwersytet Gdański - Informatyka II st., semestr 1 - 2018/2019
+### Kod do refaktoryzacji pochodzi z repozytorium [Emily Bache](https://github.com/emilybache/Yatzy-Refactoring-Kata).
+Celem projektu była refaktoryzja kodu, stosując zasady zawarte na stronie https://refactoring.com/catalog/  
+#### Język: Ruby
+### Studenci: 
+- [Krzystof Borawski](https://github.com/Msegun),
+- [Błażej Kucman](https://github.com/kucmeno), 
+- [Krzysztof Kulewski](https://github.com/kkulewski)
 
+
+# Metryki
+## Better Code Hub
+[![BCH compliance](https://bettercodehub.com/edge/badge/kucmeno/ZJP?branch=master)](https://bettercodehub.com/)
+
+## Flog - złożoność kodu
+#### BEFORE  
+`249.5: flog total`  
+`15.6: flog/method average`  
+#### AFTER  
+`60.3: flog total`  
+`4.6: flog/method average`
+
+## Flay - duplikacja kodu
+#### BEFORE
+`186: flay total` 
+#### AFTER
+`0: flay total`
+
+## CLOC - linie kodu
+#### BEFORE
+`Files: 1, Blank: 20, Comment: 0, Code: 236`  
+#### AFTER
+`Files: 2, Blank: 12, Comment: 2, Code: 83`
